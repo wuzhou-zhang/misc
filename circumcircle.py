@@ -8,7 +8,7 @@ def get_convergence(x0, y0, x1, y1, x2, y2, x, y):
     return abs(dist0 - dist1) + abs(dist0 - dist2) + abs(dist1 - dist2)
 
 
-def search(x0, y0, x1, y1, x2, y2):
+def iterative_search(x0, y0, x1, y1, x2, y2):
     x, y, convergence, delta = x0, y0, 1e9, 0.05
     while convergence > 0.1:
         convergence = get_convergence(x0, y0, x1, y1, x2, y2, x, y)
@@ -17,4 +17,4 @@ def search(x0, y0, x1, y1, x2, y2):
                 x, y = new_x, new_y
     return x, y
 
-print search(0, 0, 0, 10, 10, 0)
+print iterative_search(0, 0, 0, 10, 10, 0)
